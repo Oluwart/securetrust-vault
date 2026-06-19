@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Records</title>
+
+<link rel="stylesheet" href="../css/dashboard.css">
+
+<style>
+
+.search-box{
+margin-bottom:20px;
+}
+
+.search-box input{
+width:350px;
+padding:10px;
+border:1px solid #ccc;
+border-radius:8px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+}
+
+table th,
+table td{
+padding:12px;
+border:1px solid #ddd;
+text-align:left;
+}
+
+table th{
+background:#0f172a;
+color:white;
+}
+
+.action-btn{
+padding:6px 12px;
+border:none;
+cursor:pointer;
+border-radius:6px;
+margin-right:5px;
+}
+
+.view-btn{
+background:#0ea5e9;
+color:white;
+}
+
+.delete-btn{
+background:#ef4444;
+color:white;
+}
+
+.status{
+padding:4px 10px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.in-storage{
+background:#dcfce7;
+color:#15803d;
+}
+
+.released{
+background:#fee2e2;
+color:#b91c1c;
+}
+
+.edit-btn{
+background:#f59e0b;
+color:white;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>STVI</h2>
+
+<ul>
+<li><a href="dashboard.html">Dashboard</a></li>
+<li><a href="add-record.html">Add Record</a></li>
+<li><a href="view-records.html">View Records</a></li>
+</ul>
+
+</div>
+
+<div class="main-content">
+
+<h1>Vault Records</h1>
+
+<br>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search by Tracking Number or Client Name">
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Tracking Number</th>
+<th>Client Name</th>
+<th>Item</th>
+<th>Status</th>
+<th>Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="recordsTable">
+
+</tbody>
+
+</table>
+
+</div>
+
+<script type="module" src="../js/view-records.js"></script>
+<script type="module" src="../js/auth-guard.js"></script>
+
+</body>
+
+</html>
