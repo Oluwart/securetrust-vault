@@ -50,51 +50,115 @@ color:#d4af37;
 /* HERO */
 
 .hero{
+position:relative;
 height:100vh;
-background:
-linear-gradient(
-rgba(0,0,0,.65),
-rgba(0,0,0,.65)
-),
-url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2070&auto=format&fit=crop');
-background-size:cover;
-background-position:center;
+overflow:hidden;
+}
+
+.slider{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+opacity:0;
+transition:opacity 1s ease-in-out;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.60);
+
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+
+z-index:2;
 }
 
 .hero-content{
+    margin-bottom:-70px;
 max-width:800px;
 padding:20px;
 }
 
-.hero h1{
-font-size:60px;
-color:white;
-margin-bottom:20px;
+.hero-sub{
+    margin-top:20px;
 }
 
-.hero p{
+
+.hero-content p{
 font-size:20px;
-color:#ddd;
+color:#f1f1f1;
 margin-bottom:30px;
 }
 
-.hero-btn{
-display:inline-block;
-background:#d4af37;
-color:#0f172a;
-padding:15px 30px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+.hero-tracking{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.hero-btn:hover{
-transform:translateY(-3px);
+.hero-tracking input{
+    width:450px;
+    max-width:90%;
+    padding:18px 25px;
+    border:none;
+    outline:none;
+    border-radius:50px;
+    font-size:16px;
+    background:rgba(255,255,255,0.95);
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+.hero-tracking input::placeholder{
+    color:#64748b;
+}
+
+#heroTrackBtn{
+    padding:18px 35px;
+    border:none;
+    border-radius:50px;
+    background:#d4af37;
+    color:#0f172a;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:all .3s ease;
+    box-shadow:0 8px 25px rgba(212,175,55,0.35);
+}
+
+#heroTrackBtn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(212,175,55,0.5);
+}
+
+#heroTrackBtn:active{
+    transform:translateY(0);
 }
 
 /* SECTIONS */
@@ -341,50 +405,7 @@ padding:20px;
 border-radius:10px;
 }
 
-/* MOBILE */
 
-@media(max-width:768px){
-
-    .logo{
-flex-direction:column;
-text-align:center;
-}
-
-.logo-text h2{
-font-size:16px;
-}
-
-.logo img{
-width:50px;
-height:50px;
-}
-
-header{
-padding:15px 5%;
-flex-direction:column;
-}
-
-nav{
-margin-top:10px;
-}
-
-nav a{
-margin:0 10px;
-}
-
-.hero h1{
-font-size:38px;
-}
-
-.hero p{
-font-size:17px;
-}
-
-.track-box input{
-width:100%;
-}
-
-}
 
 /* LOGO */
 
@@ -426,4 +447,388 @@ height:auto;
 .logo img,
 .footer-logo img{
 filter: drop-shadow(0 4px 8px rgba(0,0,0,.3));
+}
+
+.slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+animation:zoomHero 8s linear infinite;
+}
+
+@keyframes zoomHero{
+
+0%{
+transform:scale(1);
+}
+
+100%{
+transform:scale(1.1);
+}
+
+}
+
+.slider-dots{
+position:absolute;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+z-index:5;
+}
+
+.dot{
+height:12px;
+width:12px;
+margin:0 5px;
+background:#fff;
+border-radius:50%;
+display:inline-block;
+opacity:.5;
+}
+
+.dot.active{
+opacity:1;
+background:#d4af37;
+}
+
+.hero-sub{
+margin-top:25px;
+font-size:15px;
+color:#e5e7eb;
+}
+
+.hero-content h1{
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #f1f1f1;
+}
+
+.hero-btn{
+    display:inline-block;
+    background:#d4af37;
+    color:#0f172a;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:50px;
+    font-weight:700;
+    margin-top:20px;
+    transition:all .3s ease;
+}
+
+.hero-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(212,175,55,.4);
+}
+
+.result-container{
+max-width:1100px;
+margin:50px auto;
+padding:20px;
+}
+
+.report-logo{
+width:90px;
+height:auto;
+margin-bottom:15px;
+}
+
+.tracking-card{
+border-top:6px solid #d4af37;
+}
+
+.status-badge{
+font-size:15px;
+font-weight:700;
+padding:10px 22px;
+}
+
+.verification-seal{
+display:inline-block;
+margin-top:10px;
+padding:8px 18px;
+border:2px solid #d4af37;
+border-radius:30px;
+font-size:13px;
+font-weight:700;
+color:#d4af37;
+}
+
+.remarks-box{
+border-left:5px solid #d4af37;
+}
+
+.report-footer{
+margin-top:30px;
+text-align:center;
+font-size:14px;
+color:#64748b;
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+
+@media screen and (max-width:768px){
+
+    /* HEADER */
+
+    header{
+        padding:15px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo{
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        gap:8px;
+    }
+
+    .logo img{
+        width:55px;
+        height:55px;
+    }
+
+    .logo-text h2{
+        font-size:18px;
+    }
+
+    .logo-text p{
+        font-size:11px;
+    }
+
+    /* NAVIGATION */
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0;
+        font-size:15px;
+    }
+
+    /* HERO */
+
+    .hero{
+        min-height:100vh;
+    }
+
+    .hero-overlay{
+        padding:140px 20px 50px;
+    }
+
+    .hero-content{
+        max-width:100%;
+        margin-bottom:0;
+        padding:0;
+    }
+
+    .hero-content h1{
+        font-size:2.4rem;
+        line-height:1.2;
+        margin-bottom:20px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+        line-height:1.7;
+        margin-bottom:20px;
+    }
+
+    .hero-sub{
+        font-size:15px;
+        line-height:1.8;
+        padding:0 10px;
+    }
+
+    /* TRACKING FORM */
+
+    .hero-tracking{
+        width:100%;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .hero-tracking input{
+        width:100%;
+        max-width:100%;
+        height:60px;
+        padding:0 20px;
+        font-size:16px;
+    }
+
+    #heroTrackBtn{
+        width:100%;
+        height:60px;
+        font-size:18px;
+    }
+
+    /* SECTIONS */
+
+    section{
+        padding:70px 20px;
+    }
+
+    section h2{
+        font-size:30px;
+    }
+
+    /* SERVICES */
+
+    .service-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* FEATURES */
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    /* TESTIMONIALS */
+
+    .testimonial-grid{
+        grid-template-columns:1fr;
+    }
+
+    /* STATS */
+
+    .stats{
+        grid-template-columns:1fr;
+        padding:40px 20px;
+    }
+
+    .stat-box h2{
+        font-size:34px;
+    }
+
+    /* TRACKING RESULT PAGE */
+
+    .result-container{
+        padding:15px;
+        margin:20px auto;
+    }
+
+    .tracking-card{
+        padding:20px;
+    }
+
+    .report-logo{
+        width:70px;
+    }
+
+    .details-grid{
+        grid-template-columns:1fr;
+    }
+
+    .status-badge{
+        display:block;
+        text-align:center;
+        width:fit-content;
+        margin:0 auto 20px;
+    }
+
+    .remarks-box{
+        padding:15px;
+    }
+
+    .hero-btn{
+        display:block;
+        width:100%;
+        margin:10px 0;
+        text-align:center;
+    }
+
+    /* SLIDER DOTS */
+
+    .slider-dots{
+        bottom:20px;
+    }
+
+}
+
+
+
+
+@media(max-width:768px){
+
+    header{
+        padding:15px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo{
+        justify-content:center;
+    }
+
+    .logo img{
+        width:50px;
+    }
+
+    .logo-text h2{
+        font-size:18px;
+        text-align:center;
+    }
+
+    .logo-text p{
+        font-size:11px;
+        text-align:center;
+    }
+
+    nav{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px;
+    }
+
+    nav a{
+        margin:0;
+        font-size:15px;
+    }
+
+    .hero{
+        min-height:100vh;
+        padding:140px 20px 50px;
+    }
+
+    .hero-content h1{
+        font-size:2.3rem;
+        line-height:1.2;
+    }
+
+    .hero-content p{
+        font-size:18px;
+        line-height:1.6;
+    }
+
+    .hero-tracking{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .hero-tracking input{
+        width:100%;
+        max-width:100%;
+        height:60px;
+    }
+
+    #heroTrackBtn{
+        width:100%;
+        height:60px;
+        font-size:20px;
+    }
+
+    .hero-sub{
+        font-size:15px;
+        line-height:1.8;
+    }
+
 }

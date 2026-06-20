@@ -55,23 +55,63 @@ alt="SecureTrust Vault International Logo">
 
 <section class="hero" id="home">
 
+<div class="slider">
+
+<div class="slide active">
+<img src="images/vault1.jpg">
+</div>
+
+<div class="slide">
+<img src="images/vault2.jpg">
+</div>
+
+<div class="slide">
+<img src="images/vault3.jpg">
+</div>
+
+<div class="slide">
+<img src="images/vault4.jpg">
+</div>
+
+</div>
+
+<div class="slider-dots">
+
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+</div>
+
 <div class="hero-overlay">
 
 <div class="hero-content">
 
-<h1>
-SecureTrust Vault International
-</h1>
+<h1>SecureTrust Vault International</h1>
 
 <p>
 Global Asset Protection, Secure Storage &
 Professional Vault Management Services
 </p>
 
-<a href="#tracking" class="hero-btn">
-Track Your Asset
-</a>
+<div class="hero-tracking">
 
+<input
+type="text"
+placeholder="Enter Tracking Number"
+id="trackingNumber">
+
+<button id="heroTrackBtn">
+Track Asset
+</button>
+
+</div>
+
+<p class="hero-sub">
+Trusted by clients worldwide for secure asset storage,
+vault management and verification services.
+</p>
 </div>
 
 </div>
@@ -198,36 +238,6 @@ Real-time verification and tracking services.
 
 </section>
 
-<!-- TRACKING -->
-
-<section class="tracking" id="tracking">
-
-<div class="container">
-
-<h2>Track Your Asset</h2>
-
-<p style="text-align:center; font-size:16px; color:#555;">
-Enter your tracking number below to verify your asset.
-</p>
-
-<div class="track-box">
-
-<input
-type="text"
-id="trackingNumber"
-placeholder="Enter Tracking Number">
-
-<button id="trackBtn">
-
-Track Asset
-
-</button>
-
-</div>
-
-<div id="result"></div>
-
-</div>
 
 </section>
 
@@ -337,7 +347,12 @@ support@securetrustvault.com
 
 </footer>
 
+
+
+
+<script src="js/slider.js"></script>
 <script type="module" src="js/track.js"></script>
+<script src="js/home-track.js"></script>
 
 </body>
 
