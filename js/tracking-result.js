@@ -225,13 +225,13 @@ async function loadRecord() {
             text-align:center;
           ">
 
-          <button
+          <a
             onclick="window.print()"
             class="hero-btn">
 
             Print Report
 
-          </button>
+          </a>
 
           <a
             href="index.html"
