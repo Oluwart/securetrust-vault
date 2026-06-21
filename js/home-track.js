@@ -1,24 +1,38 @@
-// js/home-track.js
+const trackBtn =
+document.getElementById("heroTrackBtn");
 
-document
-.getElementById("heroTrackBtn")
-.addEventListener("click", () => {
+const trackingInput =
+document.getElementById("trackingNumber");
 
-const trackingNumber =
-document
-.getElementById("trackingNumber")
-.value
-.trim();
+const loader =
+document.getElementById("trackingLoader");
 
-if(!trackingNumber){
+trackBtn.addEventListener(
+"click",
+trackAsset
+);
 
-alert("Please enter a tracking number");
+function trackAsset(){
 
-return;
+    const trackingNumber =
+    trackingInput.value.trim();
+
+    if(!trackingNumber){
+
+        alert(
+        "Please enter a tracking number."
+        );
+
+        return;
+    }
+
+    loader.classList.add("show");
+
+    setTimeout(() => {
+
+        window.location.href =
+        `tracking-result.html?tracking=${encodeURIComponent(trackingNumber)}`;
+
+    }, 2500);
 
 }
-
-window.location.href =
-`tracking-result.html?tracking=${trackingNumber}`;
-
-});
